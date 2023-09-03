@@ -1,3 +1,4 @@
 import ThemeProvider from './ThemeProvider';
+import Text from './Text';
 
-export { ThemeProvider };
+export { ThemeProvider, Text };

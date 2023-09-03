@@ -1,13 +1,13 @@
 import { ConfigProvider } from 'antd';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import { render, unmount } from 'rc-util/lib/React/render';
+import useButtonStyle from './styles/buttonStyle';
+import useTagStyle from './styles/tagStyle';
+import useSwitchStyle from './styles/switchStyle';
 import * as React from 'react';
+import { PREFIX } from './constant';
 
 type ConfigProviderProps = Parameters<typeof ConfigProvider>[0];
 
 type WaveConfig = NonNullable<ConfigProviderProps>['wave'];
-
-type ShowEffect = NonNullable<WaveConfig>['showEffect'];
 
 export interface ThemeProviderProps {
   disabled?: boolean;
@@ -17,5 +17,27 @@ export interface ThemeProviderProps {
 export default function ThemeProvider(props: ThemeProviderProps) {
   const { children } = props;
 
-  return <ConfigProvider>{children}</ConfigProvider>;
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+
+  // Button
+  const techBtnPrefixCls = getPrefixCls(`btn_${PREFIX}`);
+  useButtonStyle(techBtnPrefixCls);
+
+  // Tag
+  const techTagPrefixCls = getPrefixCls(`tag_${PREFIX}`);
+  useTagStyle(techTagPrefixCls);
+
+  // Switch
+  const techSwitchPrefixCls = getPrefixCls(`switch_${PREFIX}`);
+  useSwitchStyle(techSwitchPrefixCls);
+
+  return (
+    <ConfigProvider
+      button={{ className: techBtnPrefixCls }}
+      tag={{ className: techTagPrefixCls }}
+      switch={{ className: techSwitchPrefixCls }}
+    >
+      {children}
+    </ConfigProvider>
+  );
 }

@@ -1,6 +1,6 @@
 ---
 hero:
-  title: 🏖️ Geek
+  title: 👓 Geek Theme
   description: Ant Design Geek Theme
 ---
 
