@@ -21,10 +21,10 @@ import { ThemeProvider, Text } from '../../src';
 
 const Holder = (props: { children?: React.ReactNode }) => {
   const { token } = theme.useToken();
-  const { colorBgContainer, paddingXS } = token;
+  const { colorBgContainer, padding } = token;
 
   return (
-    <div style={{ background: colorBgContainer, padding: paddingXS }}>
+    <div style={{ background: colorBgContainer, paddingInline: padding }}>
       {props.children}
     </div>
   );
@@ -71,10 +71,8 @@ const Demo = () => {
             </Space>
 
             <Divider />
-          </Holder>
 
-          <ConfigProvider componentDisabled={componentDisabled}>
-            <Holder>
+            <ConfigProvider componentDisabled={componentDisabled}>
               <div
                 style={{
                   display: 'flex',
@@ -142,8 +140,8 @@ const Demo = () => {
                   Hello, <Text>Geek Theme</Text>
                 </Card>
               </div>
-            </Holder>
-          </ConfigProvider>
+            </ConfigProvider>
+          </Holder>
         </ThemeProvider>
       </ConfigProvider>
     </>
