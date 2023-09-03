@@ -6,13 +6,13 @@
     "react",
     "theme"
   ],
-  "homepage": "https://github.com/zombieJ/geek-theme-sample",
+  "homepage": "https://github.com/zombieJ/antd-geek-theme-sample",
   "bugs": {
-    "url": "https://github.com/zombieJ/geek-theme-sample/issues"
+    "url": "https://github.com/zombieJ/antd-geek-theme-sample/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zombieJ/geek-theme-sample.git"
+    "url": "https://github.com/zombieJ/antd-geek-theme-sample.git"
   },
   "license": "MIT",
   "author": "",
