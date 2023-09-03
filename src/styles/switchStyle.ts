@@ -16,7 +16,7 @@ const genStyle: GenerateStyle<FullToken<'Switch'>> = (token) => {
     [`${componentCls}${DOT_PREFIX}`]: {
       [`&${componentCls}&${componentCls}-checked`]: {
         '&, &:hover, &:focus': {
-          background,
+          background: `${background} !important`,
         },
       },
     },

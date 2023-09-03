@@ -26,6 +26,11 @@ const genBorderStyle: GenerateStyle<FullToken<'Button'>> = (token) => {
         [`&:not(${componentCls}-dangerous)`]: {
           ...getAnimationBackground(lineWidth),
           ...backgroundAnimation,
+
+          '&:disabled': {
+            opacity: token.opacityLoading,
+            color: token.colorTextLightSolid,
+          },
         },
       },
 
@@ -36,6 +41,10 @@ const genBorderStyle: GenerateStyle<FullToken<'Button'>> = (token) => {
 
           '&:not(:disabled):hover': {
             color: token.colorTextLightSolid,
+          },
+
+          '&:disabled:before': {
+            opacity: token.opacityLoading,
           },
         },
       },

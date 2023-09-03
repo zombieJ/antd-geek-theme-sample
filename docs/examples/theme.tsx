@@ -11,6 +11,7 @@ import {
   Tag,
   Typography,
   theme,
+  Spin,
 } from 'antd';
 import React from 'react';
 import { ThemeProvider, Text } from '../../src';
@@ -30,6 +31,8 @@ const Holder = (props: { children?: React.ReactNode }) => {
 
 const Demo = () => {
   const [disabled, setDisabled] = React.useState<boolean>(false);
+  const [componentDisabled, setComponentDisabled] =
+    React.useState<boolean>(false);
   const [checkedTags, setCheckedTags] = React.useState<number[]>([0, 2]);
 
   return (
@@ -50,69 +53,90 @@ const Demo = () => {
               <Text>Have a nice day~</Text>
             </Typography.Paragraph>
 
-            <Switch
-              checkedChildren="Enabled"
-              unCheckedChildren="Disable"
-              checked={!disabled}
-              onChange={() => setDisabled((d) => !d)}
-            />
-            <Divider />
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                paddingBlock: 32,
-                rowGap: 32,
-              }}
-            >
-              <Radio.Group options={['default', 'apple', 'orange']} />
-
-              <Space>
-                <Button type="primary">Primary</Button>
-                <Button>Default</Button>
-                <Button type="dashed">Dashed</Button>
-                <Button type="primary" danger>
-                  Danger
-                </Button>
-                <Button type="text">Text</Button>
-                <Button type="link">Link</Button>
-              </Space>
-              <Space>
-                {new Array(3).fill(null).map((_, index) => (
-                  <CheckableTag
-                    key={index}
-                    checked={checkedTags.includes(index)}
-                    onChange={(checked) => {
-                      setCheckedTags((tags) => {
-                        if (checked) {
-                          return [...tags, index];
-                        }
-                        return tags.filter((t) => t !== index);
-                      });
-                    }}
-                  >
-                    Tag {index}
-                  </CheckableTag>
-                ))}
-              </Space>
-              <Space>
-                <Switch
-                  checkedChildren="So Geek"
-                  unCheckedChildren="So Geek"
-                  defaultChecked
-                />
-                <Tag onClick={() => {}}>Tag</Tag>
-              </Space>
-
-              <Checkbox.Group
-                options={new Array(3)
-                  .fill(null)
-                  .map((_, index) => `option-${index}`)}
+            <Space>
+              <Switch
+                checkedChildren="Enabled"
+                unCheckedChildren="Disable"
+                checked={!disabled}
+                onChange={() => setDisabled((d) => !d)}
               />
-            </div>
+
+              <Switch
+                checkedChildren="Component Disabled"
+                unCheckedChildren="Component Disabled"
+                checked={componentDisabled}
+                onChange={() => setComponentDisabled((d) => !d)}
+              />
+            </Space>
+
+            <Divider />
           </Holder>
+
+          <ConfigProvider componentDisabled={componentDisabled}>
+            <Holder>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  paddingBlock: 32,
+                  rowGap: 32,
+                }}
+              >
+                <Checkbox.Group
+                  options={new Array(3)
+                    .fill(null)
+                    .map((_, index) => `option-${index}`)}
+                />
+
+                <Radio.Group
+                  defaultValue="default"
+                  options={['default', 'apple', 'orange']}
+                />
+
+                <Space>
+                  <Button type="primary">Primary</Button>
+                  <Button>Default</Button>
+                  <Button type="dashed">Dashed</Button>
+                  <Button type="primary" danger>
+                    Danger
+                  </Button>
+                  <Button type="text">Text</Button>
+                  <Button type="link">Link</Button>
+                </Space>
+                <Space>
+                  <Switch
+                    checkedChildren="So Geek"
+                    unCheckedChildren="So Geek"
+                    defaultChecked
+                  />
+                  <Tag onClick={() => {}}>Tag</Tag>
+                  {new Array(3).fill(null).map((_, index) => (
+                    <CheckableTag
+                      key={index}
+                      checked={checkedTags.includes(index)}
+                      onChange={(checked) => {
+                        setCheckedTags((tags) => {
+                          if (checked) {
+                            return [...tags, index];
+                          }
+                          return tags.filter((t) => t !== index);
+                        });
+                      }}
+                    >
+                      Tag {index}
+                    </CheckableTag>
+                  ))}
+                </Space>
+
+                <Space>
+                  <Spin size="small" />
+                  <Spin />
+                  <Spin size="large" />
+                </Space>
+              </div>
+            </Holder>
+          </ConfigProvider>
         </ThemeProvider>
       </ConfigProvider>
     </>

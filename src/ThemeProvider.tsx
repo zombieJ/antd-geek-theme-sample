@@ -2,6 +2,9 @@ import { ConfigProvider } from 'antd';
 import useButtonStyle from './styles/buttonStyle';
 import useTagStyle from './styles/tagStyle';
 import useSwitchStyle from './styles/switchStyle';
+import useCheckboxStyle from './styles/checkboxStyle';
+import useRadioStyle from './styles/radioStyle';
+import useSpinStyle from './styles/spinStyle';
 import * as React from 'react';
 import { PREFIX } from './constant';
 
@@ -28,6 +31,15 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   // Switch
   useSwitchStyle(getPrefixCls(`switch`));
 
+  // Checkbox
+  useCheckboxStyle(getPrefixCls(`checkbox`));
+
+  // Radio
+  useRadioStyle(getPrefixCls(`radio`));
+
+  // Spin
+  useSpinStyle(getPrefixCls(`spin`));
+
   // ====================== Render ======================
   const passedCls = disabled ? null : PREFIX;
 
@@ -37,6 +49,9 @@ export default function ThemeProvider(props: ThemeProviderProps) {
       tag={{ className: passedCls }}
       switch={{ className: passedCls }}
       typography={{ className: passedCls }}
+      checkbox={{ className: passedCls }}
+      radio={{ className: passedCls }}
+      spin={{ className: passedCls }}
     >
       {children}
     </ConfigProvider>

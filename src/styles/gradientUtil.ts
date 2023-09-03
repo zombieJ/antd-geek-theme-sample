@@ -24,8 +24,8 @@ export const animationBackground = `linear-gradient(-45deg, ${[
   '#f7797d',
 ].join(',')})`;
 
-export const getAnimationBackground = (lineWidth: number = 0) => ({
-  background: animationBackground,
+export const getAnimationBackground = (lineWidth: number = 0): CSSObject => ({
+  backgroundImage: animationBackground,
   backgroundSize: `calc(200% + ${lineWidth * 4}px) calc(200% + ${
     lineWidth * 4
   }px)`,
@@ -53,7 +53,7 @@ export const getBackgroundAnimation = (lineWidth: number = 0) => {
   return backgroundAnimation;
 };
 
-export const getBorderStyle = (lineWidth: number = 0): CSSInterpolation => [
+export const getBorderStyle = (lineWidth: number = 0): CSSObject[] => [
   {
     content: '""',
     position: 'absolute',
@@ -61,16 +61,18 @@ export const getBorderStyle = (lineWidth: number = 0): CSSInterpolation => [
     padding: lineWidth,
     borderRadius: 'inherit',
     background,
+    zIndex: 1,
+    transition: 'all 0.3s',
 
     pointerEvents: 'none',
 
     mask: borderMask,
     maskComposite: `xor`,
 
-    [`-webkit-mask` as any]: borderMask,
-    [`-webkit-mask-composite` as any]: 'exclude',
+    WebkitMask: borderMask,
+    WebkitMaskComposite: 'exclude',
   },
   {
-    [`-webkit-mask-composite` as any]: `xor`,
+    WebkitMaskComposite: `xor`,
   },
 ];
