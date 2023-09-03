@@ -1,4 +1,5 @@
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
 export const background = `linear-gradient(135deg, ${[
   '#f7797d',
@@ -51,3 +52,25 @@ export const getBackgroundAnimation = (lineWidth: number = 0) => {
 
   return backgroundAnimation;
 };
+
+export const getBorderStyle = (lineWidth: number = 0): CSSInterpolation => [
+  {
+    content: '""',
+    position: 'absolute',
+    inset: -lineWidth,
+    padding: lineWidth,
+    borderRadius: 'inherit',
+    background,
+
+    pointerEvents: 'none',
+
+    mask: borderMask,
+    maskComposite: `xor`,
+
+    [`-webkit-mask` as any]: borderMask,
+    [`-webkit-mask-composite` as any]: 'exclude',
+  },
+  {
+    [`-webkit-mask-composite` as any]: `xor`,
+  },
+];

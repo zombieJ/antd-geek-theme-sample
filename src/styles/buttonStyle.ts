@@ -9,48 +9,30 @@ import {
   borderMask,
   getAnimationBackground,
   getBackgroundAnimation,
+  getBorderStyle,
 } from './gradientUtil';
+import { DOT_PREFIX } from '../constant';
 
 // ============================== Border ==============================
 const genBorderStyle: GenerateStyle<FullToken<'Button'>> = (token) => {
-  const { antCls, componentCls, lineWidth } = token;
+  const { componentCls, lineWidth } = token;
 
   const backgroundAnimation = getBackgroundAnimation(lineWidth);
 
   return {
-    [componentCls]: {
+    [`${componentCls}${DOT_PREFIX}`]: {
       // ======================= Primary =======================
-      [`&${antCls}-btn-primary`]: {
-        [`&:not(${antCls}-btn-dangerous)`]: {
+      [`&${componentCls}-primary`]: {
+        [`&:not(${componentCls}-dangerous)`]: {
           ...getAnimationBackground(lineWidth),
           ...backgroundAnimation,
         },
       },
 
       // ======================= Default =======================
-      [`&${antCls}-btn-default`]: {
-        [`&:not(${antCls}-btn-dangerous)`]: {
-          '&:before': [
-            {
-              content: '""',
-              position: 'absolute',
-              inset: -lineWidth,
-              padding: lineWidth,
-              borderRadius: 'inherit',
-              background,
-
-              pointerEvents: 'none',
-
-              mask: borderMask,
-              maskComposite: `xor`,
-
-              [`-webkit-mask` as any]: borderMask,
-              [`-webkit-mask-composite` as any]: 'exclude',
-            },
-            {
-              [`-webkit-mask-composite` as any]: `xor`,
-            },
-          ],
+      [`&${componentCls}-default`]: {
+        [`&:not(${componentCls}-dangerous)`]: {
+          '&:before': getBorderStyle(lineWidth),
 
           '&:not(:disabled):hover': {
             color: token.colorTextLightSolid,
@@ -59,8 +41,8 @@ const genBorderStyle: GenerateStyle<FullToken<'Button'>> = (token) => {
       },
 
       // ======================== Hover ========================
-      [`&${antCls}-btn-primary, &${antCls}-btn-default`]: {
-        [`&:not(:disabled):not(${antCls}-btn-dangerous)`]: {
+      [`&${componentCls}-primary, &${componentCls}-default`]: {
+        [`&:not(:disabled):not(${componentCls}-dangerous)`]: {
           '&:hover': {
             filter: `brightness(120%)`,
           },

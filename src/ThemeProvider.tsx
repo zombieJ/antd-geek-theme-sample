@@ -15,27 +15,28 @@ export interface ThemeProviderProps {
 }
 
 export default function ThemeProvider(props: ThemeProviderProps) {
-  const { children } = props;
+  const { children, disabled } = props;
 
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
 
   // Button
-  const techBtnPrefixCls = getPrefixCls(`btn_${PREFIX}`);
-  useButtonStyle(techBtnPrefixCls);
+  useButtonStyle(getPrefixCls(`btn`));
 
   // Tag
-  const techTagPrefixCls = getPrefixCls(`tag_${PREFIX}`);
-  useTagStyle(techTagPrefixCls);
+  useTagStyle(getPrefixCls(`tag`));
 
   // Switch
-  const techSwitchPrefixCls = getPrefixCls(`switch_${PREFIX}`);
-  useSwitchStyle(techSwitchPrefixCls);
+  useSwitchStyle(getPrefixCls(`switch`));
+
+  // ====================== Render ======================
+  const passedCls = disabled ? null : PREFIX;
 
   return (
     <ConfigProvider
-      button={{ className: techBtnPrefixCls }}
-      tag={{ className: techTagPrefixCls }}
-      switch={{ className: techSwitchPrefixCls }}
+      button={{ className: passedCls }}
+      tag={{ className: passedCls }}
+      switch={{ className: passedCls }}
+      typography={{ className: passedCls }}
     >
       {children}
     </ConfigProvider>

@@ -4,18 +4,20 @@ import {
   type FullToken,
 } from 'antd/es/theme/internal';
 
-import { getBackground } from './gradientUtil';
+import { getBackground, getBorderStyle } from './gradientUtil';
 
 // ============================== Border ==============================
 const genStyle: GenerateStyle<FullToken<'Tag'>> = (token) => {
-  const { antCls, componentCls, lineWidth } = token;
-
-  // const tmpCls = componentCls;
-  const tmpCls = '.ant-tag';
+  const { componentCls, lineWidth } = token;
 
   return {
-    [tmpCls]: {
-      [`&${antCls}-tag-checkable`]: {
+    // TODO: CheckableTag missing CP className
+    [componentCls]: {
+      [`&:not(${componentCls}-checkable)`]: {
+        '&:before': getBorderStyle(lineWidth),
+      },
+
+      [`&${componentCls}-checkable`]: {
         borderColor: 'transparent !important',
         background: token.colorBgContainerDisabled,
         backgroundPosition: `-${lineWidth}px -${lineWidth}px`,

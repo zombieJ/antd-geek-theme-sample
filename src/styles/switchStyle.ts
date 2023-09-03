@@ -6,14 +6,15 @@ import {
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 
 import { background, getBackground } from './gradientUtil';
+import { DOT_PREFIX } from '../constant';
 
 // ============================== Border ==============================
 const genStyle: GenerateStyle<FullToken<'Switch'>> = (token) => {
-  const { antCls, componentCls } = token;
+  const { componentCls } = token;
 
   return {
-    [componentCls]: {
-      [`&${componentCls}&${antCls}-switch-checked`]: {
+    [`${componentCls}${DOT_PREFIX}`]: {
+      [`&${componentCls}&${componentCls}-checked`]: {
         '&, &:hover, &:focus': {
           background,
         },

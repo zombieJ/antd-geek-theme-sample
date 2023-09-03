@@ -99,8 +99,9 @@ const Demo = () => {
               </Space>
               <Space>
                 <Switch
-                  checkedChildren="So Happy"
-                  unCheckedChildren="So Happy"
+                  checkedChildren="So Geek"
+                  unCheckedChildren="So Geek"
+                  defaultChecked
                 />
                 <Tag onClick={() => {}}>Tag</Tag>
               </Space>
