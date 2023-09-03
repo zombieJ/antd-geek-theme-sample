@@ -10,10 +10,6 @@ import useCardStyle from './styles/cardStyle';
 import * as React from 'react';
 import { PREFIX } from './constant';
 
-type ConfigProviderProps = Parameters<typeof ConfigProvider>[0];
-
-type WaveConfig = NonNullable<ConfigProviderProps>['wave'];
-
 export interface ThemeProviderProps {
   disabled?: boolean;
   children?: React.ReactNode;

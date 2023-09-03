@@ -1,5 +1,5 @@
 import { Keyframes } from '@ant-design/cssinjs';
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 export const background = `linear-gradient(135deg, ${[
   '#f7797d',

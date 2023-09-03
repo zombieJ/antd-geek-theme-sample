@@ -17,7 +17,7 @@ import {
 import React from 'react';
 import { ThemeProvider, Text } from '../../src';
 
-const { CheckableTag } = Tag;
+// const { CheckableTag } = Tag;
 
 const Holder = (props: { children?: React.ReactNode }) => {
   const { token } = theme.useToken();
@@ -34,7 +34,7 @@ const Demo = () => {
   const [disabled, setDisabled] = React.useState<boolean>(false);
   const [componentDisabled, setComponentDisabled] =
     React.useState<boolean>(false);
-  const [checkedTags, setCheckedTags] = React.useState<number[]>([0, 2]);
+  // const [checkedTags, setCheckedTags] = React.useState<number[]>([0, 2]);
 
   return (
     <>
