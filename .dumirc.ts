@@ -1,6 +1,11 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
 
+const name = 'antd-geek-theme-sample';
+
+const isProdSite =
+  process.env.PREVIEW !== 'true' && process.env.NODE_ENV === 'production';
+
 export default defineConfig({
   alias: {
     'antd-geek-theme-sample$': path.resolve('src'),
@@ -24,4 +29,6 @@ export default defineConfig({
       }
     `,
   ],
+  base: isProdSite ? `/${name}/` : '/',
+  publicPath: isProdSite ? `/${name}/` : '/',
 });
