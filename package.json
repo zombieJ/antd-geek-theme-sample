@@ -4,16 +4,15 @@
   "description": "Ant Design geek theme example",
   "keywords": [
     "react",
-    "ant-design",
     "theme"
   ],
-  "homepage": "https://github.com/ant-design/geek-theme",
+  "homepage": "https://github.com/zombieJ/geek-theme",
   "bugs": {
-    "url": "https://github.com/ant-design/geek-theme/issues"
+    "url": "https://github.com/zombieJ/geek-theme/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/geek-theme.git"
+    "url": "https://github.com/zombieJ/geek-theme.git"
   },
   "license": "MIT",
   "author": "",

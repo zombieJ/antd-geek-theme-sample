@@ -5,8 +5,6 @@ import {
 } from 'antd/es/theme/internal';
 
 import {
-  background,
-  borderMask,
   getAnimationBackground,
   getBackgroundAnimation,
   getBorderStyle,

@@ -21,6 +21,12 @@ const App: React.FC = () => (
 export default App;
 ```
 
+## About
+
+Sample code in `styles/` use antd internal `genComponentStyleHook` to generate style hook.
+It's not recommend to use internal API in real world.
+You can use any other css-in-js solution to generate style hook like `Emotion` or `styled-components`.
+
 ## API
 
 ### ThemeProvider
