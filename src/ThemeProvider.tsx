@@ -5,6 +5,8 @@ import useSwitchStyle from './styles/switchStyle';
 import useCheckboxStyle from './styles/checkboxStyle';
 import useRadioStyle from './styles/radioStyle';
 import useSpinStyle from './styles/spinStyle';
+import useDividerStyle from './styles/dividerStyle';
+import useCardStyle from './styles/cardStyle';
 import * as React from 'react';
 import { PREFIX } from './constant';
 
@@ -40,6 +42,12 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   // Spin
   useSpinStyle(getPrefixCls(`spin`));
 
+  // Divider
+  useDividerStyle(getPrefixCls(`divider`));
+
+  // Card
+  useCardStyle(getPrefixCls(`card`));
+
   // ====================== Render ======================
   const passedCls = disabled ? null : PREFIX;
 
@@ -52,6 +60,8 @@ export default function ThemeProvider(props: ThemeProviderProps) {
       checkbox={{ className: passedCls }}
       radio={{ className: passedCls }}
       spin={{ className: passedCls }}
+      divider={{ className: passedCls }}
+      card={{ className: passedCls }}
     >
       {children}
     </ConfigProvider>

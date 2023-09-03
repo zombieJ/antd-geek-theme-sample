@@ -1,7 +1,7 @@
 {
-  "name": "@ant-design/geek-theme",
+  "name": "antd-geek-theme-sample",
   "version": "1.0.0",
-  "description": "Ant Design geek theme",
+  "description": "Ant Design geek theme example",
   "keywords": [
     "react",
     "ant-design",

@@ -12,6 +12,7 @@ import {
   Typography,
   theme,
   Spin,
+  Card,
 } from 'antd';
 import React from 'react';
 import { ThemeProvider, Text } from '../../src';
@@ -104,7 +105,9 @@ const Demo = () => {
                   <Button type="text">Text</Button>
                   <Button type="link">Link</Button>
                 </Space>
-                <Space>
+
+                {/* CheckedTag has bug that not support CP className yet */}
+                {/* <Space>
                   <Switch
                     checkedChildren="So Geek"
                     unCheckedChildren="So Geek"
@@ -127,13 +130,17 @@ const Demo = () => {
                       Tag {index}
                     </CheckableTag>
                   ))}
-                </Space>
+                </Space> */}
 
                 <Space>
                   <Spin size="small" />
                   <Spin />
                   <Spin size="large" />
                 </Space>
+
+                <Card title="Card Title" size="small" style={{ minWidth: 300 }}>
+                  Hello, <Text>Geek Theme</Text>
+                </Card>
               </div>
             </Holder>
           </ConfigProvider>

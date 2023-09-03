@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@@/*": [".dumi/tmp/*"],
-      "@ant-design/geek-theme": ["src/index.tsx"]
+      "antd-geek-theme-sample": ["src/index.tsx"]
     }
   }
 }

@@ -63,6 +63,7 @@ export const getBorderStyle = (lineWidth: number = 0): CSSObject[] => [
     background,
     zIndex: 1,
     transition: 'all 0.3s',
+    display: 'block',
 
     pointerEvents: 'none',
 

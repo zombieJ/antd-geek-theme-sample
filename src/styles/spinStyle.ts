@@ -8,7 +8,7 @@ import { background } from './gradientUtil';
 import { DOT_PREFIX } from '../constant';
 
 const DOT_COUNT = 9;
-const DOT_DIST = 30;
+const DOT_DIST = 40;
 const DOT_MIN_SIZE = 0;
 const DOT_MAX_SIZE = 10;
 

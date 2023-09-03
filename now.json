@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "@ant-design/geek-theme",
+  "name": "antd-geek-theme-sample",
   "builds": [
     {
       "src": "package.json",

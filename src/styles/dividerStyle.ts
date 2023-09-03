@@ -8,21 +8,21 @@ import { background } from './gradientUtil';
 import { DOT_PREFIX } from '../constant';
 
 // ============================== Border ==============================
-const genStyle: GenerateStyle<FullToken<'Switch'>> = (token) => {
-  const { componentCls } = token;
+const genStyle: GenerateStyle<FullToken<'Divider'>> = (token) => {
+  const { componentCls, lineWidth } = token;
 
   return {
-    [`${componentCls}${DOT_PREFIX}`]: {
-      [`&${componentCls}&${componentCls}-checked`]: {
-        '&, &:hover, &:focus': {
-          background: `${background} !important`,
-        },
+    [`${DOT_PREFIX}${componentCls}`]: {
+      [`&${componentCls}-horizontal`]: {
+        border: 'none',
+        height: lineWidth,
+        background,
       },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(['Switch', 'techTheme'], (token) => {
+export default genComponentStyleHook(['Divider', 'techTheme'], (token) => {
   return [genStyle(token)];
 });
