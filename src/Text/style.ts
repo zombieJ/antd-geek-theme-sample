@@ -2,7 +2,7 @@ import {
   type GenerateStyle,
   genComponentStyleHook,
   type FullToken,
-} from 'antd/es/theme/internal';
+} from '../styles/styleUtil';
 
 import { background } from '../styles/gradientUtil';
 import { DOT_PREFIX } from '../constant';

@@ -1,4 +1,4 @@
-import { genComponentStyleHook } from 'antd/es/theme/internal';
+import { genComponentStyleHook } from './styleUtil';
 
 import { genStyle } from './checkboxStyle';
 

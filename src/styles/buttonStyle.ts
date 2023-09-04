@@ -2,7 +2,7 @@ import {
   type GenerateStyle,
   genComponentStyleHook,
   type FullToken,
-} from 'antd/es/theme/internal';
+} from './styleUtil';
 
 import {
   getAnimationBackground,

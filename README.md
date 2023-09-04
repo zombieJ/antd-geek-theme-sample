@@ -2,8 +2,7 @@
 
 ## About
 
-🚨 Sample code in `styles/` use antd internal `genComponentStyleHook` to generate style hook.
-It's only to simplify the dependency of this repo which is **not recommend** to use internal API in real world.
+Sample code in `styles/styleUtil` copy the antd `genComponentStyleHook` function.
 You can use any other css-in-js solution to generate style hook like `Emotion` or `styled-components`.
 
 ## Usage
